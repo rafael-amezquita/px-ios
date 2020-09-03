@@ -44,13 +44,18 @@ extension OneTapFlow: PXPaymentResultHandlerProtocol {
             let oneTapViewController = pxNavigationHandler.navigationController.viewControllers.filter({$0 is PXOneTapViewController}).first as? PXOneTapViewController {
             pxNavigationHandler.navigationController.popToViewController(oneTapViewController, animated: true)
             if pxNavigationHandler.isLoadingPresented() {
-                pxNavigationHandler.dismissLoading(animated: true, finishCallback: {
-                    oneTapViewController.resetButton(error: error)
+                pxNavigationHandler.dismissLoading(animated: true, finishCallback: { [weak self] in
+                    self?.resetButtonAndCleanToken(oneTapViewController: oneTapViewController, error: error)
                 })
                 return
             }
-            oneTapViewController.resetButton(error: error)
+            resetButtonAndCleanToken(oneTapViewController: oneTapViewController, error: error)
         }
+    }
+
+    private func resetButtonAndCleanToken(oneTapViewController: PXOneTapViewController, error: MPSDKError) {
+        model.paymentData.cleanToken()
+        oneTapViewController.resetButton(error: error)
     }
 
     func finishPaymentFlow(paymentResult: PaymentResult, instructionsInfo: PXInstructions?, pointsAndDiscounts: PXPointsAndDiscounts?) {

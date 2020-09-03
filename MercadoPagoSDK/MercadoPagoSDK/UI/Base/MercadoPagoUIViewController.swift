@@ -120,7 +120,7 @@ internal class MercadoPagoUIViewController: UIViewController, UIGestureRecognize
             backButton.image = ResourceManager.shared.getImage("back")
             backButton.style = .plain
             backButton.target = self
-            backButton.tintColor = navBarTextColor
+            backButton.tintColor = ThemeManager.shared.navigationBar().getTintColor() //navBarTextColor
             backButton.action = #selector(MercadoPagoUIViewController.executeBack)
             backButton.accessibilityLabel = "atrás".localized
             self.navigationItem.leftBarButtonItem = backButton

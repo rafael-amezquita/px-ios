@@ -794,7 +794,6 @@ extension PXOneTapViewController: PXAnimatedButtonDelegate {
     }
 
     func progressButtonAnimationTimeOut() {
-        loadingButtonComponent?.resetButton()
         loadingButtonComponent?.showErrorToast()
     }
 }

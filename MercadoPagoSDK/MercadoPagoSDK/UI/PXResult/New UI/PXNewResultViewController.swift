@@ -675,7 +675,6 @@ extension PXNewResultViewController: PXAnimatedButtonDelegate {
 
     func progressButtonAnimationTimeOut() {
         if let button = getRemedyViewAnimatedButton() {
-            button.resetButton()
             button.showErrorToast()
         }
     }

@@ -393,7 +393,6 @@ extension PXOfflineMethodsViewController: PXAnimatedButtonDelegate {
     }
 
     func progressButtonAnimationTimeOut() {
-        loadingButtonComponent?.resetButton()
         loadingButtonComponent?.showErrorToast()
     }
 
