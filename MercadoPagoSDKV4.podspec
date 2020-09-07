@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
     }
     s.dependency 'MLUI', '~> 5.0'
     s.dependency 'MLCardDrawer', '~> 1.4'
-    s.dependency 'MLBusinessComponents', '~> 1.0'
+    s.dependency 'MLBusinessComponents', :git => 'https://github.com/rafael-amezquita/mlbusiness-components-ios.git', :branch => 'feature/Xcode12'
     s.dependency 'MLCardForm', '~> 0.7'
     s.dependency 'AndesUI', '~> 3.0'
   end
